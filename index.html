@@ -6,6 +6,7 @@
   <title>Panditan Di Hatti</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins&display=swap');
+    * { box-sizing: border-box; }
 
     body {
       font-family: 'Poppins', sans-serif;
@@ -25,13 +26,11 @@
 
     .hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 3.2em;
+      font-size: 3em;
       margin-bottom: 10px;
     }
 
-    .hero p {
-      font-size: 1.2em;
-    }
+    .hero p { font-size: 1.1em; }
 
     .whatsapp-button {
       display: inline-block;
@@ -45,9 +44,7 @@
       transition: 0.3s;
     }
 
-    .whatsapp-button:hover {
-      background: #1ebc5e;
-    }
+    .whatsapp-button:hover { background: #1ebc5e; }
 
     section {
       padding: 40px 20px;
@@ -62,18 +59,13 @@
       margin-bottom: 10px;
     }
 
-    .about img, .menu img, .signature img {
-      max-width: 100%;
+    .about img, .menu img, .signature img, .owner-img {
+      width: 100%;
+      max-width: 600px;
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       margin-top: 15px;
-    }
-
-    .owner-img {
-      max-width: 300px;
-      border-radius: 12px;
-      margin-top: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      height: auto;
     }
 
     .menu-item {
@@ -85,15 +77,13 @@
     }
 
     .menu-item img {
-      width: 140px;
-      height: 100px;
+      width: 280px;
+      height: 180px;
       object-fit: cover;
-      border-radius: 10px;
     }
 
     .modi-img {
-      width: 100%;
-      max-width: 320px;
+      max-width: 400px;
       display: block;
       margin: 20px auto;
       border-radius: 10px;
@@ -192,6 +182,7 @@
       With a proud history since the 1980s and over <strong>1,250+ reviews</strong> averaging <strong>4.5★</strong>, we’re a must-visit for both locals and tourists.
     </p>
     <img src="OWNER" alt="Shop Owner" class="owner-img" />
+    <img src="SHOP.avif" alt="Shop Front" />
   </section>
 
   <section class="menu">
@@ -211,10 +202,6 @@
     <div class="menu-item">
       <img src="https://i.imgur.com/OgUeW6o.jpg" alt="Rasgulla" />
       <div><strong>Rasgulla:</strong> Soft, spongy, and syrupy sweet.</div>
-    </div>
-    <div class="menu-item">
-      <img src="https://i.imgur.com/XY8bH2O.jpg" alt="Paneer Pakoda" />
-      <div><strong>Paneer Pakoda:</strong> Fried cheese perfection.</div>
     </div>
   </section>
 
