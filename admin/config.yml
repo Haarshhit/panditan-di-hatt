@@ -1,10 +1,6 @@
 backend:
-  name: auth0
-  auth_type: implicit
-  app_id: 9T1YDhGiPSGE1XqQmkPHei7IzyFeReN2
-  domain: pandit-di-hatti.us.auth0.com
-  base_url: https://panditandihatti.netlify.app
-  redirect_uri: https://panditandihatti.netlify.app/admin/
+  name: git-gateway
+  branch: main
 
 media_folder: "uploads"
 public_folder: "/uploads"
@@ -41,4 +37,3 @@ collections:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Subtitle", name: "subtitle", widget: "string" }
           - { label: "Image", name: "image", widget: "image" }
-
