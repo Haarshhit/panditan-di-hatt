@@ -243,15 +243,17 @@
     </ul>
   </section>
 
-  <section class="reviews">
-    <h2>⭐ Customer Reviews</h2>
-    <div class="review"><strong>Aarav:</strong> "Best sweets I’ve ever had, especially the Besan Barfi!"</div>
-    <div class="review"><strong>Meena:</strong> "Tastes like home. Warm service and fresh snacks."</div>
-    <div class="review"><strong>Rohan:</strong> "It’s always my first stop when I reach Hamirpur."</div>
-  </section>
+ <div id="review-form" class="review-form">
+  <h3>Submit Your Review</h3>
+  <form onsubmit="submitReview(event)">
+    <input type="text" id="name" placeholder="Your Name" required />
+    <textarea id="message" placeholder="Write your review..." rows="4" required></textarea>
+    <button type="submit">Submit</button>
+  </form>
+</div>
 
   <div class="review-button">
-    <a href="#reviews">✍️ Write a Review</a>
+    <a href="#review-form">✍️ Write a Review</a>
   </div>
 
   <section class="order-link">
