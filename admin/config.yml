@@ -4,6 +4,7 @@ backend:
   app_id: 9T1YDhGiPSGE1XqQmkPHei7IzyFeReN2
   domain: pandit-di-hatti.us.auth0.com
   base_url: https://panditandihatti.netlify.app
+  redirect_uri: https://panditandihatti.netlify.app/admin/
 
 media_folder: "uploads"
 public_folder: "/uploads"
@@ -15,10 +16,10 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Name", name: "title", widget: "string" }
+      - { label: "Price", name: "price", widget: "string" }
       - { label: "Image", name: "image", widget: "image" }
-      - { label: "Price", name: "price", widget: "number" }
+      - { label: "Description", name: "body", widget: "text" }
 
   - name: "reviews"
     label: "Customer Reviews"
@@ -27,15 +28,17 @@ collections:
     slug: "{{slug}}"
     fields:
       - { label: "Name", name: "name", widget: "string" }
-      - { label: "Rating", name: "rating", widget: "number", min: 1, max: 5 }
-      - { label: "Message", name: "message", widget: "text" }
+      - { label: "Review", name: "body", widget: "text" }
+      - { label: "Rating (1–5)", name: "rating", widget: "number", min: 1, max: 5 }
 
-  - name: "about"
-    label: "About Us"
+  - name: "banner"
+    label: "Homepage Banner"
     files:
-      - file: "content/about.md"
-        label: "About Page"
-        name: "about"
+      - file: "content/banner.md"
+        label: "Banner Settings"
+        name: "banner"
         fields:
-          - { label: "Heading", name: "title", widget: "string" }
-          - { label: "Body", name: "body", widget: "markdown" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "string" }
+          - { label: "Image", name: "image", widget: "image" }
+
