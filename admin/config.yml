@@ -1,8 +1,6 @@
 backend:
-  name: auth0
-  domain: pandit-di-hatti.us.auth0.com
-  client_id: 9T1YDhGiPSGE1XqQmkPHei7IzyFeReN2
-  login: true
+  name: git-gateway
+  branch: main
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
@@ -10,6 +8,8 @@ public_folder: "/images/uploads"
 media_library:
   name: uploadcare
   config: {}
+
+site_url: https://panditandihatti.netlify.app
 
 collections:
   - name: "menu"
@@ -19,8 +19,8 @@ collections:
     slug: "{{slug}}"
     fields:
       - { label: "Item Name", name: "title", widget: "string" }
-      - { label: "Price (₹)", name: "price", widget: "number" }
       - { label: "Description", name: "description", widget: "text" }
+      - { label: "Price", name: "price", widget: "string" }
       - { label: "Image", name: "image", widget: "image" }
 
   - name: "reviews"
@@ -29,17 +29,7 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
-      - { label: "Name", name: "name", widget: "string" }
-      - { label: "Rating (1–5)", name: "rating", widget: "number", min: 1, max: 5 }
+      - { label: "Customer Name", name: "name", widget: "string" }
       - { label: "Review", name: "body", widget: "text" }
-
-  - name: "banner"
-    label: "Homepage Banner"
-    files:
-      - label: "Hero Section"
-        name: "hero"
-        file: "content/hero.md"
-        fields:
-          - { label: "Heading", name: "heading", widget: "string" }
-          - { label: "Subheading", name: "subheading", widget: "text" }
-          - { label: "Banner Image", name: "image", widget: "image" }
+      - { label: "Rating", name: "rating", widget: "number", min: 1, max: 5 }
+      - { label: "Date", name: "date", widget: "datetime" }
