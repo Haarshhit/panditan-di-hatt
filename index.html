@@ -4,113 +4,87 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Panditan Di Hatti</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins&display=swap');
-    * { box-sizing: border-box; }
-
     body {
       font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #fffdf6;
-      color: #333;
-      line-height: 1.6;
+      margin:0; padding:0; background:#fffdf6; color:#333; line-height:1.6;
     }
-
     header.hero {
       background: linear-gradient(120deg, #ffc107, #ff9800);
-      padding: 70px 20px;
-      text-align: center;
-      animation: fadeIn 1.5s ease-in-out;
+      padding:70px 20px;
+      text-align:center;
+      animation:fadeIn 1.5s ease-in-out;
     }
-
     .hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 3em;
-      margin-bottom: 10px;
+      font-size:3.2em;
+      margin-bottom:10px;
     }
-
-    .hero p { font-size: 1.1em; }
-
+    .hero p { font-size:1.2em; }
     .whatsapp-button {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 25px;
-      background: #25D366;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-      transition: 0.3s;
+      display:inline-block;
+      margin-top:20px;
+      padding:12px 25px;
+      background:#25D366;
+      color:white;
+      text-decoration:none;
+      border-radius:8px;
+      font-weight:bold;
+      transition:0.3s;
     }
-
-    .whatsapp-button:hover { background: #1ebc5e; }
+    .whatsapp-button:hover { background:#1ebc5e; }
 
     section {
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: auto;
+      padding:40px 20px;
+      max-width:1000px;
+      margin:auto;
     }
-
     section h2 {
-      color: #b14520;
-      font-size: 2em;
+      color:#b14520;
+      font-size:2em;
       font-family: 'Playfair Display', serif;
-      margin-bottom: 10px;
+      margin-bottom:10px;
     }
-
-    .about img, .menu img, .signature img, .owner-img {
-      width: 100%;
-      max-width: 600px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      margin-top: 15px;
-      height: auto;
+    .about img, .menu img {
+      max-width:100%;
+      border-radius:12px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.1);
+      margin-top:15px;
     }
-
     .menu-item {
-      display: flex;
-      align-items: center;
-      margin-bottom: 25px;
-      gap: 20px;
-      flex-wrap: wrap;
+      display:flex;
+      align-items:center;
+      margin-bottom:25px;
+      gap:20px;
+      flex-wrap:wrap;
     }
-
     .menu-item img {
-      width: 280px;
-      height: 180px;
-      object-fit: cover;
+      width:140px;
+      height:100px;
+      object-fit:cover;
+      border-radius:10px;
     }
-
     .modi-img {
-      max-width: 400px;
-      display: block;
-      margin: 20px auto;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      width:100%;
+      max-width:320px;
+      display:block;
+      margin:20px auto;
+      border-radius:10px;
+      box-shadow:0 5px 15px rgba(0,0,0,0.1);
     }
-
     iframe {
-      width: 100%;
-      height: 300px;
-      border: 0;
-      margin-top: 20px;
-      border-radius: 10px;
+      width:100%;
+      height:300px;
+      border:0;
+      margin-top:20px;
+      border-radius:10px;
     }
-
-    footer {
-      background: #ffe0b2;
-      text-align: center;
-      padding: 20px;
-      color: #333;
-    }
-
     .timings ul {
-      list-style: none;
-      padding: 0;
-      font-size: 1.1em;
+      list-style:none;
+      padding:0;
+      font-size:1.1em;
     }
-
     .timings ul li {
       padding: 8px;
       border-radius: 6px;
@@ -118,48 +92,53 @@
       background: #fff0db;
       transition: all 0.3s ease-in-out;
     }
-
     .timings ul li.today {
       background: #ffd54f;
       font-weight: bold;
       animation: pulse 1.2s infinite;
     }
-
-    .reviews .review {
-      background: #fffaf0;
-      padding: 15px;
-      margin-bottom: 20px;
-      border-radius: 8px;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.05);
-    }
-
-    .review strong {
-      color: #d35400;
-    }
-
-    .order-link {
-      text-align: center;
+    .submit-review {
+      background: #fffaf2;
+      padding: 40px 20px;
+      border-top: 1px solid #f0e4d7;
       margin-top: 30px;
+      border-radius: 12px;
     }
-
-    .order-link a {
-      background: #ff5722;
-      padding: 12px 20px;
-      border-radius: 8px;
+    .submit-review form {
+      max-width: 500px;
+      margin: auto;
+    }
+    .submit-review input,
+    .submit-review textarea,
+    .submit-review select,
+    .submit-review button {
+      width: 100%;
+      padding: 10px;
+      font-family: 'Poppins', sans-serif;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1em;
+    }
+    .submit-review button {
+      background: #ff9800;
       color: white;
-      text-decoration: none;
       font-weight: bold;
+      margin-top: 10px;
+      cursor: pointer;
     }
-
-    .order-link a:hover {
-      background: #e64a19;
+    .submit-review button:hover {
+      background: #e67e22;
     }
-
+    footer {
+      background:#ffe0b2;
+      text-align:center;
+      padding:20px;
+      color:#333;
+    }
     @keyframes fadeIn {
-      0% {opacity: 0; transform: translateY(-20px);}
-      100% {opacity: 1; transform: translateY(0);}
+      0%{opacity:0;transform:translateY(-20px);}
+      100%{opacity:1;transform:translateY(0);}
     }
-
     @keyframes pulse {
       0% { background-color: #ffeb3b; }
       50% { background-color: #fff176; }
@@ -168,7 +147,6 @@
   </style>
 </head>
 <body>
-
   <header class="hero">
     <h1>Panditan Di Hatti</h1>
     <p>Where Tradition Meets Taste — Since 1980 in Hamirpur (Anu), Himachal Pradesh</p>
@@ -181,40 +159,25 @@
       Panditan Di Hatti is a legendary sweets and snacks shop near PG Degree College in Hamirpur (Anu), Himachal Pradesh. 
       With a proud history since the 1980s and over <strong>1,250+ reviews</strong> averaging <strong>4.5★</strong>, we’re a must-visit for both locals and tourists.
     </p>
-    <img src="OWNER" alt="Shop Owner" class="owner-img" />
     <img src="SHOP.avif" alt="Shop Front" />
   </section>
 
   <section class="menu">
     <h2>Our Specialties</h2>
     <div class="menu-item">
-      <img src="https://i.imgur.com/BoTxniM.jpg" alt="Besan Barfi" />
-      <div><strong>⭐ Besan Barfi:</strong> Famous all over Himachal. Soft, golden, and full of rich flavor.</div>
+      <img src="Screenshot 2025-07-06 010312.png" alt="Besan Barfi" />
+      <div><strong>⭐ Besan Barfi:</strong> Signature sweet — soft, golden, rich & famous in Hamirpur.</div>
     </div>
     <div class="menu-item">
       <img src="https://i.imgur.com/tNVYFe2.jpg" alt="Motichoor Laddoo" />
       <div><strong>Motichoor Laddoo:</strong> Spherical joy of every celebration!</div>
     </div>
-    <div class="menu-item">
-      <img src="https://i.imgur.com/VGxjEGj.jpg" alt="Samosa" />
-      <div><strong>Samosa:</strong> Crispy, spicy triangles of delight.</div>
-    </div>
-    <div class="menu-item">
-      <img src="https://i.imgur.com/OgUeW6o.jpg" alt="Rasgulla" />
-      <div><strong>Rasgulla:</strong> Soft, spongy, and syrupy sweet.</div>
-    </div>
-  </section>
-
-  <section class="signature">
-    <h2>🥇 Signature Sweet – Besan Barfi</h2>
-    <p>Our star delight, praised by thousands and featured on social media. Soft, golden, and melts in your mouth — a legacy in every bite!</p>
-    <img src="Screenshot 2025-07-06 010312.png" alt="Signature Besan Barfi" />
   </section>
 
   <section class="pm-modi">
-    <h2>PM Modi’s Buzz?</h2>
-    <p>PM Narendra Modi’s fan pages featured our <strong>Besan Barfi</strong> in reels — and the love from India followed! 🙌</p>
-    <video controls width="100%" style="border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+    <h2>PM Modi Buzz</h2>
+    <p>PM fan pages featured our <strong>Besan Barfi</strong> in reels — India took notice! 🙌</p>
+    <video width="100%" height="auto" controls>
       <source src="PM.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
@@ -223,46 +186,68 @@
   <section class="timings">
     <h2>🕒 Opening Hours</h2>
     <ul id="timing-list">
-      <li>Sunday: <span class="hours">08:00 AM - 08:30 PM</span></li>
-      <li>Monday: <span class="hours">08:00 AM - 08:30 PM</span></li>
-      <li>Tuesday: <span class="hours">08:00 AM - 08:30 PM</span></li>
-      <li>Wednesday: <span class="hours">08:00 AM - 08:30 PM</span></li>
-      <li>Thursday: <span class="hours">08:00 AM - 08:30 PM</span></li>
-      <li>Friday: <span class="hours">08:00 AM - 08:30 PM</span></li>
-      <li>Saturday: <span class="hours">08:00 AM - 08:30 PM</span></li>
+      <li>Sunday: 08:00 AM - 08:30 PM</li>
+      <li>Monday: 08:00 AM - 08:30 PM</li>
+      <li>Tuesday: 08:00 AM - 08:30 PM</li>
+      <li>Wednesday: 08:00 AM - 08:30 PM</li>
+      <li>Thursday: 08:00 AM - 08:30 PM</li>
+      <li>Friday: 08:00 AM - 08:30 PM</li>
+      <li>Saturday: 08:00 AM - 08:30 PM</li>
     </ul>
   </section>
 
-  <section class="reviews">
-    <h2>⭐ Customer Reviews</h2>
-    <div class="review"><strong>Ramesh:</strong> "Best besan barfi I’ve ever had! Must try!"</div>
-    <div class="review"><strong>Priya:</strong> "Pure, tasty and local Himachali flavors – I love it!"</div>
-    <div class="review"><strong>Yuvraj:</strong> "Whenever I visit Hamirpur, I never miss it!"</div>
+  <section class="submit-review">
+    <h2>💬 Leave a Review</h2>
+    <form name="review-form" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="review-form" />
+      <label for="name">Your Name</label><br/>
+      <input type="text" name="name" id="name" required><br/><br/>
+
+      <label for="rating">Rating (1–5)</label><br/>
+      <select name="rating" id="rating" required>
+        <option value="">Select</option>
+        <option>5</option>
+        <option>4</option>
+        <option>3</option>
+        <option>2</option>
+        <option>1</option>
+      </select><br/><br/>
+
+      <label for="message">Your Review</label><br/>
+      <textarea name="message" id="message" rows="4" required></textarea><br/><br/>
+
+      <button type="submit">Submit Review</button>
+    </form>
   </section>
 
-  <section class="order-link">
-    <h2>🍽️ Order Online</h2>
-    <a href="https://www.zomato.com/hamirpur/pandittan-di-hatti-hamirpur-locality/order" target="_blank">Order on Zomato</a>
-  </section>
-
-  <section class="contact">
-    <h2>Visit Us</h2>
+  <section class="location">
+    <h2>📍 Visit Us</h2>
     <p>
-      📍 Near PG Degree College, Anu Market, Hamirpur (Anu), Himachal Pradesh<br/>
-      ⭐ Rated 4.5★ (1,250+ reviews)
+      Near PG Degree College, Anu Market, Hamirpur (Anu), Himachal Pradesh
     </p>
-    <iframe src="https://www.google.com/maps?q=31.750798576238175,76.51580599973934&z=17&output=embed" allowfullscreen="" loading="lazy"></iframe>
+    <iframe src="https://maps.google.com/maps?q=31.750798576238175,76.51580599973934&z=15&output=embed" allowfullscreen loading="lazy"></iframe>
   </section>
 
   <footer>
     <p>© 2025 Panditan Di Hatti | Website designed by Harshit</p>
+    <a href="#" onclick="adminLogin()">🔐 Admin Login</a>
   </footer>
 
   <script>
+    // Highlight Today in Timings
     const today = new Date().getDay();
     const listItems = document.querySelectorAll('#timing-list li');
     listItems[today].classList.add("today");
-  </script>
 
+    // Admin Login
+    function adminLogin() {
+      let pass = prompt("Enter Admin Password:");
+      if (pass === "3246") {
+        window.location.href = "/admin/";
+      } else {
+        alert("❌ Wrong password!");
+      }
+    }
+  </script>
 </body>
 </html>
