@@ -1,10 +1,20 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <meta charset="UTF-8">
-    <title>Admin Panel</title>
-    <script src="https://unpkg.com/netlify-cms@^2.10.0/dist/netlify-cms.js"></script>
+    <meta charset="utf-8" />
+    <title>Admin Panel | Panditan Di Hatti</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- ✅ CMS Script -->
+    <script src="https://unpkg.com/netlify-cms@^2.10.0/dist/netlify-cms.js" defer></script>
   </head>
   <body>
+    <!-- ✅ Mount point for CMS -->
+    <script>
+      window.addEventListener("DOMContentLoaded", function () {
+        const cmsRoot = document.createElement("div");
+        cmsRoot.id = "nc-root";
+        document.body.appendChild(cmsRoot);
+      });
+    </script>
   </body>
 </html>
