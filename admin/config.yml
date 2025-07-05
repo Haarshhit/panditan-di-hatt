@@ -10,8 +10,9 @@ collections:
     label: "Menu Items"
     folder: "content/menu"
     create: true
+    slug: "{{name}}"
     fields:
-      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Dish Name", name: "name", widget: "string" }
       - { label: "Price", name: "price", widget: "string" }
       - { label: "Image", name: "image", widget: "image" }
       - { label: "Description", name: "description", widget: "text" }
@@ -20,6 +21,26 @@ collections:
     label: "Customer Reviews"
     folder: "content/reviews"
     create: true
+    slug: "{{name}}"
     fields:
-      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Customer Name", name: "name", widget: "string" }
       - { label: "Review", name: "review", widget: "text" }
+
+  - name: "gallery"
+    label: "Gallery"
+    folder: "content/gallery"
+    create: true
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Image", name: "image", widget: "image" }
+
+  - name: "banner"
+    label: "Homepage Banner"
+    files:
+      - label: "Banner Content"
+        name: "banner"
+        file: "content/banner.md"
+        fields:
+          - { label: "Heading", name: "heading", widget: "string" }
+          - { label: "Subheading", name: "subheading", widget: "string" }
+          - { label: "Banner Image", name: "image", widget: "image" }
