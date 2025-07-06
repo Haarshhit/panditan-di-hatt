@@ -1,1 +1,1 @@
-# panditan-di-hatti
+# panditan-di-hatt
