@@ -16,30 +16,37 @@
       line-height: 1.6;
     }
 
-    .status-bar {
-      background: #d84315;
-      color: white;
-      padding: 10px;
-      text-align: center;
-      font-weight: bold;
-      animation: fadeIn 1s ease-in-out;
-    }
-
     header.hero {
       background: linear-gradient(120deg, #ffc107, #ff9800);
-      padding: 60px 20px;
+      padding: 60px 20px 40px;
       text-align: center;
       animation: fadeIn 1.5s ease-in-out;
     }
 
+    .hero img {
+      width: 120px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
     .hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 3.2em;
+      font-size: 3em;
       margin-bottom: 10px;
     }
 
     .hero p {
       font-size: 1.2em;
+    }
+
+    .status {
+      background: #222;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
     }
 
     section {
@@ -53,14 +60,6 @@
       font-size: 2em;
       font-family: 'Playfair Display', serif;
       margin-bottom: 10px;
-    }
-
-    .about img,
-    .menu img {
-      max-width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      margin-top: 15px;
     }
 
     .menu-item {
@@ -78,28 +77,20 @@
       border-radius: 10px;
     }
 
-    .modi-video {
-      width: 100%;
+    .modi-img, .owner-img {
       max-width: 300px;
       display: block;
       margin: 20px auto;
       border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
 
-    iframe {
-      width: 100%;
-      height: 300px;
-      border: 0;
-      margin-top: 20px;
+    video {
+      display: block;
+      max-width: 320px;
+      margin: 20px auto;
       border-radius: 10px;
-    }
-
-    footer {
-      background: #ffe0b2;
-      text-align: center;
-      padding: 20px;
-      color: #333;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     }
 
     .timings ul {
@@ -113,7 +104,6 @@
       border-radius: 6px;
       margin: 5px 0;
       background: #fff0db;
-      transition: all 0.3s ease-in-out;
     }
 
     .timings ul li.today {
@@ -128,10 +118,6 @@
       margin-bottom: 20px;
       border-radius: 8px;
       box-shadow: 0 3px 8px rgba(0,0,0,0.05);
-    }
-
-    .review strong {
-      color: #d35400;
     }
 
     .order-link {
@@ -152,47 +138,36 @@
       background: #e64a19;
     }
 
-    .review-form {
-      max-width: 600px;
-      margin: 30px auto;
-      padding: 20px;
-      background: #fffaf0;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    }
-
-    .review-form h3 {
-      text-align: center;
-      color: #b14520;
-    }
-
-    .review-form input,
-    .review-form textarea {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      font-family: inherit;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-    }
-
-    .review-form button {
-      padding: 10px 20px;
-      background: #ff5722;
+    .review-btn {
+      display: block;
+      width: fit-content;
+      margin: 20px auto;
+      padding: 12px 25px;
+      background: #3f51b5;
       color: white;
-      border: none;
+      text-decoration: none;
+      border-radius: 8px;
       font-weight: bold;
-      border-radius: 6px;
-      cursor: pointer;
     }
 
-    .review-form button:hover {
-      background: #e64a19;
+    footer {
+      background: #ffe0b2;
+      text-align: center;
+      padding: 20px;
+      color: #333;
+    }
+
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: 0;
+      border-radius: 10px;
+      margin-top: 20px;
     }
 
     @keyframes fadeIn {
-      0% {opacity: 0; transform: translateY(-20px);}
-      100% {opacity: 1; transform: translateY(0);}
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes pulse {
@@ -204,122 +179,111 @@
 </head>
 <body>
 
-  <div class="status-bar" id="statusBar">Checking status...</div>
+<div class="status" id="open-status">Checking shop status...</div>
 
-  <header class="hero">
-    <h1>Panditan Di Hatti</h1>
-    <p>Where Tradition Meets Taste — Since 1980 in Hamirpur (Anu), Himachal Pradesh</p>
-  </header>
+<header class="hero">
+  <img src="/images/LOGO.png" alt="Logo" />
+  <h1>Panditan Di Hatti</h1>
+  <p>Where Tradition Meets Taste — Since 1980 in Hamirpur (Anu), Himachal Pradesh</p>
+</header>
 
-  <section class="about">
-    <h2>About Us</h2>
-    <p>
-      Panditan Di Hatti is a legendary sweets and snacks shop near PG Degree College in Hamirpur (Anu), Himachal Pradesh. 
-      With a proud history since the 1980s and over <strong>1,250+ reviews</strong> averaging <strong>4.5★</strong>, we’re a must-visit for both locals and tourists.
-    </p>
-    <img src="images/OWNER.png" alt="Shop Owner" />
-  </section>
+<section class="about">
+  <h2>About Us</h2>
+  <p>
+    Panditan Di Hatti is a legendary sweets and snacks shop near PG Degree College in Hamirpur (Anu), Himachal Pradesh. 
+    With a proud history since the 1980s and over <strong>1,250+ reviews</strong> averaging <strong>4.5★</strong>, we’re a must-visit for both locals and tourists.
+  </p>
+  <img src="/images/SHOP.avif" alt="Shop" class="owner-img">
+</section>
 
-  <section class="menu">
-    <h2>Our Specialties</h2>
-    <div class="menu-item">
-      <img src="images/BESAN BARFI.png" alt="Besan Barfi" />
-      <div><strong>⭐ Besan Barfi:</strong> Famous all over Himachal. Soft, golden, and full of rich flavor.</div>
-    </div>
-    <div class="menu-item">
-      <img src="images/Motichoor Laddoo.jpg" alt="Motichoor Laddoo" />
-      <div><strong>Motichoor Laddoo:</strong> Spherical joy of every celebration!</div>
-    </div>
-    <div class="menu-item">
-      <img src="images/Samosa.jpg" alt="Samosa" />
-      <div><strong>Samosa:</strong> Crispy, spicy triangles of delight.</div>
-    </div>
-    <div class="menu-item">
-      <img src="images/Rasgulla.jpeg" alt="Rasgulla" />
-      <div><strong>Rasgulla:</strong> Soft, spongy, and syrupy sweet.</div>
-    </div>
-    <div class="menu-item">
-      <img src="images/Paneer Pakoda.jpeg" alt="Paneer Pakoda" />
-      <div><strong>Paneer Pakoda:</strong> Fried cheese perfection.</div>
-    </div>
-  </section>
-
-  <section class="pm-modi">
-    <h2>PM Modi’s Buzz?</h2>
-    <p>PM Narendra Modi’s featured our <strong>Besan Barfi</strong> — and the love from India followed! 🇮🇳</p>
-    <video src="images/PM.mp4" class="modi-video" autoplay muted loop playsinline></video>
-  </section>
-
-  <section class="timings">
-    <h2>🕒 Opening Hours</h2>
-    <ul id="timing-list">
-      <li>Sunday: <span class="hours">08:00 AM - 08:30 PM</span></li>
-      <li>Monday: <span class="hours">08:00 AM - 08:30 PM</span></li>
-      <li>Tuesday: <span class="hours">08:00 AM - 08:30 PM</span></li>
-      <li>Wednesday: <span class="hours">08:00 AM - 08:30 PM</span></li>
-      <li>Thursday: <span class="hours">08:00 AM - 08:30 PM</span></li>
-      <li>Friday: <span class="hours">08:00 AM - 08:30 PM</span></li>
-      <li>Saturday: <span class="hours">08:00 AM - 08:30 PM</span></li>
-    </ul>
-  </section>
-
-  <section class="reviews">
-    <h2>⭐ Customer Reviews</h2>
-    <div class="review"><strong>Ramesh:</strong> "Best besan barfi I’ve ever had! Must try!"</div>
-    <div class="review"><strong>Priya:</strong> "Pure, tasty and local Himachali flavors – I love it!"</div>
-    <div class="review"><strong>Yuvraj:</strong> "Whenever I visit Hamirpur, I never miss it!"</div>
-    <div class="order-link">
-      <a href="#review-form">✍️ Write a Review</a>
-    </div>
-  </section>
-
-  <div id="review-form" class="review-form">
-    <h3>Submit Your Review</h3>
-    <form onsubmit="submitReview(event)">
-      <input type="text" id="name" placeholder="Your Name" required />
-      <textarea id="message" placeholder="Write your review..." rows="4" required></textarea>
-      <button type="submit">Submit</button>
-    </form>
+<section class="menu">
+  <h2>Our Specialties</h2>
+  <div class="menu-item">
+    <img src="/images/BESAN BARFI.png" alt="Besan Barfi">
+    <div><strong>⭐ Besan Barfi:</strong> Famous all over Himachal. Soft, golden, and full of rich flavor.</div>
   </div>
+  <div class="menu-item">
+    <img src="/images/Motichoor Laddoo.jpg" alt="Motichoor Laddoo">
+    <div><strong>Motichoor Laddoo:</strong> Spherical joy of every celebration!</div>
+  </div>
+  <div class="menu-item">
+    <img src="/images/Samosa.jpg" alt="Samosa">
+    <div><strong>Samosa:</strong> Crispy, spicy triangles of delight.</div>
+  </div>
+  <div class="menu-item">
+    <img src="/images/Rasgulla.jpeg" alt="Rasgulla">
+    <div><strong>Rasgulla:</strong> Soft, spongy, and syrupy sweet.</div>
+  </div>
+  <div class="menu-item">
+    <img src="/images/Paneer Pakoda.jpeg" alt="Paneer Pakoda">
+    <div><strong>Paneer Pakoda:</strong> Fried cheese perfection.</div>
+  </div>
+</section>
 
-  <section class="order-link">
-    <h2>🍽️ Order Online</h2>
-    <a href="https://www.zomato.com/hamirpur/pandittan-di-hatti-hamirpur-locality/order" target="_blank">Order on Zomato</a>
-  </section>
+<section class="pm-modi">
+  <h2>PM Modi’s Buzz?</h2>
+  <p>PM Narendra Modi’s featured our <strong>Besan Barfi</strong> — and the love from India followed! 🇮🇳</p>
+  <video controls>
+    <source src="/images/PM.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</section>
 
-  <section class="contact">
-    <h2>Visit Us</h2>
-    <p>
-      📍 Near PG Degree College, Anu Market, Hamirpur (Anu), Himachal Pradesh<br/>
-      ⭐ Rated 4.5★ (1,250+ reviews)
-    </p>
-    <iframe src="https://www.google.com/maps?q=31.750798576238175,76.51580599973934&z=17&output=embed" allowfullscreen="" loading="lazy"></iframe>
-  </section>
+<section class="timings">
+  <h2>🕒 Opening Hours</h2>
+  <ul id="timing-list">
+    <li>Sunday: <span>08:00 AM - 08:30 PM</span></li>
+    <li>Monday: <span>08:00 AM - 08:30 PM</span></li>
+    <li>Tuesday: <span>08:00 AM - 08:30 PM</span></li>
+    <li>Wednesday: <span>08:00 AM - 08:30 PM</span></li>
+    <li>Thursday: <span>08:00 AM - 08:30 PM</span></li>
+    <li>Friday: <span>08:00 AM - 08:30 PM</span></li>
+    <li>Saturday: <span>08:00 AM - 08:30 PM</span></li>
+  </ul>
+</section>
 
-  <footer>
-    <p>© 2025 Panditan Di Hatti | Website designed by Harshit | Licensed under MIT</p>
-  </footer>
+<section class="reviews">
+  <h2>⭐ Customer Reviews</h2>
+  <div class="review"><strong>Ramesh:</strong> "Best besan barfi I’ve ever had! Must try!"</div>
+  <div class="review"><strong>Priya:</strong> "Pure, tasty and local Himachali flavors – I love it!"</div>
+  <div class="review"><strong>Yuvraj:</strong> "Whenever I visit Hamirpur, I never miss it!"</div>
+  <a href="/admin/#/collections/reviews/new" class="review-btn">✍️ Write a Review</a>
+</section>
 
-  <script>
-    const today = new Date().getDay();
-    const listItems = document.querySelectorAll('#timing-list li');
-    listItems[today].classList.add("today");
+<section class="order-link">
+  <h2>🍽️ Order Online</h2>
+  <a href="https://www.zomato.com/hamirpur/pandittan-di-hatti-hamirpur-locality/order" target="_blank">Order on Zomato</a>
+</section>
 
-    const status = document.getElementById("statusBar");
-    const hour = new Date().getHours();
-    const isOpen = hour >= 8 && hour < 20.5;
-    status.innerText = isOpen ? "🟢 We are OPEN now!" : "🔴 We are CLOSED now!";
+<section class="contact">
+  <h2>Visit Us</h2>
+  <p>
+    📍 Near PG Degree College, Anu Market, Hamirpur (Anu), Himachal Pradesh<br/>
+    ⭐ Rated 4.5★ (1,250+ reviews)
+  </p>
+  <iframe src="https://www.google.com/maps?q=31.750798576238175,76.51580599973934&z=17&output=embed" allowfullscreen="" loading="lazy"></iframe>
+</section>
 
-    function submitReview(e) {
-      e.preventDefault();
-      const name = document.getElementById('name').value.trim();
-      const message = document.getElementById('message').value.trim();
-      if (!name || !message) return;
-      alert("Thank you for your review! (This demo doesn’t save it)");
-      document.getElementById('name').value = '';
-      document.getElementById('message').value = '';
-    }
-  </script>
+<footer>
+  <p>© 2025 Panditan Di Hatti | Website designed by Harshit | Licensed under MIT</p>
+</footer>
+
+<script>
+  // Highlight current day in timings
+  const today = new Date().getDay();
+  document.querySelectorAll("#timing-list li")[today].classList.add("today");
+
+  // Live shop status at top
+  const hour = new Date().getHours();
+  const status = document.getElementById("open-status");
+  if (hour >= 8 && hour < 20.5) {
+    status.textContent = "🟢 We're Open Now!";
+    status.style.background = "#4CAF50";
+  } else {
+    status.textContent = "🔴 We're Closed Right Now!";
+    status.style.background = "#f44336";
+  }
+</script>
 
 </body>
 </html>
