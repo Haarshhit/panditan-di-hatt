@@ -1,29 +1,19 @@
-backend:
-  name: github
-  repo: Haarshhit/panditan-di-hatti
-  branch: main
-
-media_folder: "images/uploads"
-public_folder: "/images/uploads"
-
-collections:
-  - name: "menu"
-    label: "Menu Items"
-    folder: "content/menu"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { name: "title", label: "Title", widget: "string" }
-      - { name: "price", label: "Price", widget: "string" }
-      - { name: "image", label: "Image", widget: "image" }
-      - { name: "description", label: "Description", widget: "text" }
-
-  - name: "reviews"
-    label: "Customer Reviews"
-    folder: "content/reviews"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { name: "name", label: "Customer Name", widget: "string" }
-      - { name: "review", label: "Review", widget: "text" }
-      - { name: "rating", label: "Rating (1-5)", widget: "number", min: 1, max: 5 }
+---
+title: "Panditan Di Hatti"
+tagline: "Where tradition meets taste – Since 1980 in ANU (Hamirpur)"
+description: "Official website of Panditan Di Hatti – famous for Besan Barfi and more."
+modi_video: "https://youtu.be/QOZa-VSTyek?si=UAj5cmo9g4x3ipdn"
+offers: "🎉 Diwali Offer: 15% off on all sweets!"
+footer: "© 2025 Panditan Di Hatti | Website designed by Harshit | Licensed under MIT"
+timings: |
+  Sunday: 08:00 AM – 08:30 PM
+  Monday: 08:00 AM – 08:30 PM
+  Tuesday: 08:00 AM – 08:30 PM
+  Wednesday: 08:00 AM – 08:30 PM
+  Thursday: 08:00 AM – 08:30 PM
+  Friday: 08:00 AM – 08:30 PM
+  Saturday: 08:00 AM – 08:30 PM
+banner_img: /images/LOGO.png
+owner_img: /images/OWNER.png
+shop_img: /images/SHOP.avif
+---
