@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Panditan Di Hatti</title>
+  <link rel="icon" type="image/png" href="images/LOGO.png" />
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins&display=swap');
 
@@ -13,33 +14,47 @@
       padding: 0;
       background: #fffdf6;
       color: #333;
-      line-height: 1.6;
     }
 
     header.hero {
       background: linear-gradient(120deg, #ffc107, #ff9800);
-      padding: 70px 20px;
+      padding: 70px 20px 30px;
       text-align: center;
       position: relative;
-      animation: fadeIn 1.5s ease-in-out;
-    }
-
-    .hero img.logo {
-      position: absolute;
-      top: 15px;
-      left: 15px;
-      width: 70px;
-      height: auto;
     }
 
     .hero h1 {
       font-family: 'Playfair Display', serif;
       font-size: 3.2em;
-      margin-bottom: 10px;
+      margin: 0;
     }
 
-    .hero p {
-      font-size: 1.2em;
+    .status {
+      font-weight: bold;
+      margin-top: 10px;
+      color: green;
+      font-size: 1.1em;
+    }
+
+    .zomato-order {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 25px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .zomato-open {
+      background: #e23744;
+      color: white;
+    }
+
+    .zomato-closed {
+      background: #ccc;
+      color: #555;
+      cursor: not-allowed;
     }
 
     section {
@@ -52,7 +67,7 @@
       color: #b14520;
       font-size: 2em;
       font-family: 'Playfair Display', serif;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
     }
 
     .about img, .menu img {
@@ -77,28 +92,12 @@
       border-radius: 10px;
     }
 
-    .modi-img {
-      width: 100%;
-      max-width: 320px;
-      display: block;
+    video {
+      width: 300px;
+      max-width: 100%;
+      border-radius: 10px;
       margin: 20px auto;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    iframe {
-      width: 100%;
-      height: 300px;
-      border: 0;
-      margin-top: 20px;
-      border-radius: 10px;
-    }
-
-    footer {
-      background: #ffe0b2;
-      text-align: center;
-      padding: 20px;
-      color: #333;
+      display: block;
     }
 
     .timings ul {
@@ -121,6 +120,12 @@
       animation: pulse 1.2s infinite;
     }
 
+    @keyframes pulse {
+      0% { background-color: #ffeb3b; }
+      50% { background-color: #fff176; }
+      100% { background-color: #ffeb3b; }
+    }
+
     .reviews .review {
       background: #fffaf0;
       padding: 15px;
@@ -133,42 +138,62 @@
       color: #d35400;
     }
 
-    .order-link {
+    .contact iframe {
+      width: 100%;
+      height: 300px;
+      border: 0;
+      margin-top: 20px;
+      border-radius: 10px;
+    }
+
+    .review-link {
       text-align: center;
       margin-top: 30px;
     }
 
-    .order-link a {
-      background: #ff5722;
-      padding: 12px 20px;
-      border-radius: 8px;
+    .review-link a {
+      background: #3f51b5;
+      padding: 10px 20px;
       color: white;
+      border-radius: 8px;
       text-decoration: none;
       font-weight: bold;
     }
 
-    .order-link a:hover {
-      background: #e64a19;
+    footer {
+      background: #ffe0b2;
+      text-align: center;
+      padding: 20px;
+      color: #333;
     }
 
-    @keyframes fadeIn {
-      0% {opacity: 0; transform: translateY(-20px);}
-      100% {opacity: 1; transform: translateY(0);}
+    .modi-promo {
+      text-align: center;
     }
 
-    @keyframes pulse {
-      0% { background-color: #ffeb3b; }
-      50% { background-color: #fff176; }
-      100% { background-color: #ffeb3b; }
+    .modi-promo img {
+      width: 320px;
+      max-width: 100%;
+      margin: 10px auto;
+      display: block;
+      border-radius: 10px;
+    }
+
+    .shop-img {
+      width: 100%;
+      max-width: 1000px;
+      border-radius: 12px;
+      display: block;
+      margin: 30px auto;
     }
   </style>
 </head>
 <body>
 
   <header class="hero">
-    <img src="images/LOGO.png" class="logo" alt="Panditan Di Hatti Logo" />
     <h1>Panditan Di Hatti</h1>
-    <p>Where Tradition Meets Taste — Since 1980 in Hamirpur (Anu), Himachal Pradesh</p>
+    <div id="status" class="status">Checking status...</div>
+    <a id="zomatoBtn" class="zomato-order" target="_blank">Order on Zomato</a>
   </header>
 
   <section class="about">
@@ -177,7 +202,7 @@
       Panditan Di Hatti is a legendary sweets and snacks shop near PG Degree College in Hamirpur (Anu), Himachal Pradesh. 
       With a proud history since the 1980s and over <strong>1,250+ reviews</strong> averaging <strong>4.5★</strong>, we’re a must-visit for both locals and tourists.
     </p>
-    <img src="images/OWNER.png" alt="Shop Owner" />
+    <img src="images/OWNER.png" alt="Owner" />
   </section>
 
   <section class="menu">
@@ -204,11 +229,11 @@
     </div>
   </section>
 
-  <section class="pm-modi">
-    <h2>PM Modi’s Buzz?</h2>
+  <section class="modi-promo">
+    <h2>PM Modi Featured Us!</h2>
     <p>PM Narendra Modi’s featured our <strong>Besan Barfi</strong> — and the love from India followed! 🇮🇳</p>
-    <video controls width="300" style="display:block; margin: 20px auto; border-radius: 10px;">
-      <source src="images/PM.mp4" type="video/mp4">
+    <video controls>
+      <source src="images/PM.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
   </section>
@@ -233,10 +258,9 @@
     <div class="review"><strong>Yuvraj:</strong> "Whenever I visit Hamirpur, I never miss it!"</div>
   </section>
 
-  <section class="order-link">
-    <h2>🍽️ Order Online</h2>
-    <a href="https://www.zomato.com/hamirpur/pandittan-di-hatti-hamirpur-locality/order" target="_blank">Order on Zomato</a>
-  </section>
+  <div class="review-link">
+    <a href="#reviews">✍️ Write a Review</a>
+  </div>
 
   <section class="contact">
     <h2>Visit Us</h2>
@@ -245,17 +269,39 @@
       ⭐ Rated 4.5★ (1,250+ reviews)
     </p>
     <iframe src="https://www.google.com/maps?q=31.750798576238175,76.51580599973934&z=17&output=embed" allowfullscreen="" loading="lazy"></iframe>
-    <img src="images/SHOP.avif" alt="Shop Image" style="margin-top: 20px; border-radius: 12px; width:100%; max-width:600px; display:block; margin:auto;" />
   </section>
+
+  <img src="images/SHOP.avif" alt="Shop" class="shop-img" />
 
   <footer>
     <p>© 2025 Panditan Di Hatti | Website designed by Harshit | Licensed under MIT</p>
   </footer>
 
   <script>
+    // Highlight current day in opening hours
     const today = new Date().getDay();
-    const listItems = document.querySelectorAll('#timing-list li');
-    listItems[today].classList.add("today");
+    document.querySelectorAll('#timing-list li')[today].classList.add("today");
+
+    // Real-time open/close + Zomato button behavior
+    const now = new Date();
+    const hour = now.getHours();
+    const min = now.getMinutes();
+    const totalMins = hour * 60 + min;
+    const openMins = 8 * 60;
+    const closeMins = 20 * 60 + 30;
+    const isOpen = totalMins >= openMins && totalMins <= closeMins;
+
+    const status = document.getElementById('status');
+    const zomatoBtn = document.getElementById('zomatoBtn');
+    if (isOpen) {
+      status.textContent = "✅ We’re Open Now";
+      zomatoBtn.classList.add("zomato-open");
+      zomatoBtn.href = "https://www.zomato.com/hamirpur/pandittan-di-hatti-hamirpur-locality/order";
+    } else {
+      status.textContent = "❌ We’re Closed Now";
+      zomatoBtn.classList.add("zomato-closed");
+      zomatoBtn.removeAttribute("href");
+    }
   </script>
 
 </body>
