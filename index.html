@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Panditan Di Hatti</title>
-  <link rel="icon" type="image/png" href="images/LOGO.png">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins&display=swap');
 
@@ -17,23 +16,66 @@
       line-height: 1.6;
     }
 
+    .status-bar {
+      background-color: #ffe082;
+      text-align: center;
+      padding: 10px;
+      font-weight: bold;
+      color: #333;
+      animation: fadeIn 1s ease-in-out;
+    }
+
     header.hero {
       background: linear-gradient(120deg, #ffc107, #ff9800);
-      padding: 70px 20px;
+      padding: 60px 20px 30px;
       text-align: center;
       animation: fadeIn 1.5s ease-in-out;
+      position: relative;
+    }
+
+    .hero img.logo {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      width: 70px;
+      height: auto;
     }
 
     .hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 2.6em;
-      margin: 0;
+      font-size: 3em;
+      margin-bottom: 10px;
     }
 
-    .logo-img {
-      height: 60px;
-      vertical-align: middle;
-      margin-right: 10px;
+    .hero p {
+      font-size: 1.1em;
+    }
+
+    .order-top {
+      text-align: center;
+      margin-top: 10px;
+      margin-bottom: 30px;
+    }
+
+    #zomatoBtn {
+      padding: 12px 25px;
+      font-size: 1.1em;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+      transition: background 0.3s ease-in-out;
+      display: inline-block;
+    }
+
+    #zomatoBtn.closed {
+      background-color: #ccc;
+      color: #777;
+      pointer-events: none;
+    }
+
+    #zomatoBtn.open {
+      background-color: #ff5722;
+      color: white;
     }
 
     section {
@@ -71,10 +113,9 @@
       border-radius: 10px;
     }
 
-    .modi-img {
-      width: 100%;
-      max-width: 320px;
+    .modi-video {
       display: block;
+      max-width: 320px;
       margin: 20px auto;
       border-radius: 10px;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -106,7 +147,6 @@
       border-radius: 6px;
       margin: 5px 0;
       background: #fff0db;
-      transition: all 0.3s ease-in-out;
     }
 
     .timings ul li.today {
@@ -137,23 +177,21 @@
       50% { background-color: #fff176; }
       100% { background-color: #ffeb3b; }
     }
-
-    .shop-img {
-      display: block;
-      margin: 30px auto;
-      border-radius: 10px;
-      max-width: 600px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.15);
-    }
   </style>
 </head>
 <body>
 
+  <div class="status-bar" id="openStatus">Checking shop status...</div>
+
   <header class="hero">
-    <img src="images/LOGO.png" alt="Logo" class="logo-img"/>
+    <img src="images/LOGO.png" class="logo" alt="Logo" />
     <h1>Panditan Di Hatti</h1>
     <p>Where Tradition Meets Taste — Since 1980 in Hamirpur (Anu), Himachal Pradesh</p>
   </header>
+
+  <div class="order-top">
+    <a href="https://www.zomato.com/hamirpur/pandittan-di-hatti-hamirpur-locality/order" target="_blank" id="zomatoBtn">🍽️ Order on Zomato</a>
+  </div>
 
   <section class="about">
     <h2>About Us</h2>
@@ -161,7 +199,7 @@
       Panditan Di Hatti is a legendary sweets and snacks shop near PG Degree College in Hamirpur (Anu), Himachal Pradesh. 
       With a proud history since the 1980s and over <strong>1,250+ reviews</strong> averaging <strong>4.5★</strong>, we’re a must-visit for both locals and tourists.
     </p>
-    <img src="images/OWNER.png" alt="Owner Image" />
+    <img src="images/OWNER.png" alt="Owner Photo" />
   </section>
 
   <section class="menu">
@@ -190,8 +228,8 @@
 
   <section class="pm-modi">
     <h2>PM Modi’s Buzz?</h2>
-    <p>PM Narendra Modi’s fan pages featured our <strong>Besan Barfi</strong> in reels — and the love from India followed! 🙌</p>
-    <video width="100%" height="240" controls>
+    <p>PM Narendra Modi’s featured our <strong>Besan Barfi</strong> — and the love from India followed! 🇮🇳</p>
+    <video class="modi-video" controls>
       <source src="images/PM.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
@@ -217,11 +255,6 @@
     <div class="review"><strong>Yuvraj:</strong> "Whenever I visit Hamirpur, I never miss it!"</div>
   </section>
 
-  <section class="order-link">
-    <h2>🍽️ Order Online</h2>
-    <a href="https://www.zomato.com/hamirpur/pandittan-di-hatti-hamirpur-locality/order" target="_blank">Order on Zomato</a>
-  </section>
-
   <section class="contact">
     <h2>Visit Us</h2>
     <p>
@@ -229,9 +262,8 @@
       ⭐ Rated 4.5★ (1,250+ reviews)
     </p>
     <iframe src="https://www.google.com/maps?q=31.750798576238175,76.51580599973934&z=17&output=embed" allowfullscreen="" loading="lazy"></iframe>
+    <img src="images/SHOP.avif" alt="Shop Front" style="margin-top: 20px; max-width: 100%; border-radius: 12px;">
   </section>
-
-  <img src="images/SHOP.avif" alt="Shop Image" class="shop-img"/>
 
   <footer>
     <p>© 2025 Panditan Di Hatti | Website designed by Harshit | Licensed under MIT</p>
@@ -240,7 +272,22 @@
   <script>
     const today = new Date().getDay();
     const listItems = document.querySelectorAll('#timing-list li');
-    listItems[today].classList.add("today");
+    if (listItems[today]) listItems[today].classList.add("today");
+
+    const openHour = 8;
+    const closeHour = 20.5;
+    const now = new Date();
+    const currentTime = now.getHours() + now.getMinutes() / 60;
+    const zomatoBtn = document.getElementById("zomatoBtn");
+    const openStatus = document.getElementById("openStatus");
+
+    if (currentTime >= openHour && currentTime <= closeHour) {
+      zomatoBtn.classList.add("open");
+      openStatus.textContent = "✅ We’re Open Now!";
+    } else {
+      zomatoBtn.classList.add("closed");
+      openStatus.textContent = "❌ We’re Currently Closed";
+    }
   </script>
 
 </body>
