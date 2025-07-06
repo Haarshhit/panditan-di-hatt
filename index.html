@@ -5,24 +5,58 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Panditan Di Hatti</title>
   <link rel="icon" type="image/png" href="images/LOGO.png" />
-  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins&display=swap');
-    body { font-family: 'Poppins', sans-serif; margin: 0; background: #fffdf6; color: #333; }
-    header.hero { background: linear-gradient(120deg, #ffc107, #ff9800); padding: 70px 20px 40px; text-align: center; position: relative; animation: fadeIn 1.5s ease-in-out; }
-    header.hero img.logo { position: absolute; top: 15px; left: 15px; width: 70px; }
-    header.hero h1 { font-family: 'Playfair Display', serif; font-size: 3.2em; margin: 0; }
-    header.hero .tagline { font-size: 1.2em; margin-top: 10px; font-style: italic; color: #4e342e; }
-    header.hero .status { font-weight: bold; margin-top: 15px; font-size: 1.1em; }
-    header.hero a.zomato-order { display: inline-block; margin-top: 20px; padding: 12px 25px; text-decoration: none; border-radius: 8px; font-weight: bold; transition: background 0.3s; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0; padding: 0;
+      background: #fffdf6; color: #333;
+    }
+    header.hero {
+      background: linear-gradient(120deg, #ffc107, #ff9800);
+      padding: 70px 20px 40px;
+      text-align: center;
+      position: relative;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+    header.hero img.logo {
+      position: absolute; top: 15px; left: 15px;
+      width: 70px; height: auto;
+    }
+    header.hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.2em; margin: 0;
+    }
+    header.hero .tagline {
+      font-size: 1.2em; margin-top: 10px;
+      font-style: italic; color: #4e342e;
+    }
+    header.hero .status {
+      font-weight: bold; margin-top: 15px;
+      font-size: 1.1em;
+    }
+    header.hero a.zomato-order {
+      display: inline-block; margin-top: 20px;
+      padding: 12px 25px; text-decoration: none;
+      border-radius: 8px; font-weight: bold;
+      transition: background 0.3s;
+    }
     a.zomato-order.open { background: #e23744; color: white; }
     a.zomato-order.closed { background: #ccc; color: #555; pointer-events: none; }
-    section { padding: 40px 20px; max-width: 1000px; margin: auto; }
-    section h2 { color: #b14520; font-size: 2em; font-family: 'Playfair Display', serif; margin-bottom: 15px; }
-    .about img, .shop-img { max-width:100%; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.1); margin-top:15px; }
+    section {
+      padding: 40px 20px; max-width: 1000px; margin: auto;
+    }
+    section h2 {
+      color: #b14520;
+      font-size: 2em;
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 15px;
+    }
+    .about img { max-width:100%; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.1); margin-top:15px; }
     .menu-item { display:flex; align-items:center; gap:20px; flex-wrap:wrap; margin-bottom:25px; }
     .menu-item img { width:140px; height:100px; object-fit:cover; border-radius:10px; }
-    .modi-promo iframe { width:100%; max-width:560px; height:315px; border-radius:10px; margin:20px auto; display:block; }
+    .modi-promo { text-align:center; }
+    .modi-promo iframe { width:300px; max-width:100%; border-radius:10px; margin:20px auto; display:block; }
     .timings ul { list-style:none; padding:0; font-size:1.1em; }
     .timings ul li { padding:8px; border-radius:6px; margin:5px 0; background:#fff0db; }
     .timings ul li.today { background:#ffd54f; font-weight:bold; animation:pulse 1.2s infinite; }
@@ -30,146 +64,135 @@
     .review strong { color:#d35400; }
     .review-link { text-align:center; margin:30px; }
     .review-link a { background:#3f51b5; color:white; padding:10px 20px; text-decoration:none; border-radius:8px; font-weight:bold; }
+    .contact iframe { width:100%; height:300px; border:0; border-radius:10px; margin-top:20px; }
+    .shop-img { display:block; margin:30px auto; max-width:1000px; width:100%; border-radius:12px; }
     footer { background:#ffe0b2; text-align:center; padding:20px; color:#333; }
     @keyframes fadeIn { 0%{opacity:0;transform:translateY(-20px);}100%{opacity:1;transform:translateY(0);} }
-    @keyframes pulse { 0%{background:#ffeb3b;} 50%{background:#fff176;} 100%{background:#ffeb3b;} }
+    @keyframes pulse {0%{background-color:#ffeb3b;}50%{background-color:#fff176;}100%{background-color:#ffeb3b;}}
   </style>
 </head>
 <body>
+  <header class="hero">
+    <img src="images/LOGO.png" class="logo" alt="Logo">
+    <h1>Panditan Di Hatti</h1>
+    <p class="tagline">Where Tradition Meets Taste — Since 1980 in Hamirpur (Anu), Himachal Pradesh</p>
+    <div id="openStatus" class="status">Checking status...</div>
+    <a id="zomatoBtn" class="zomato-order" target="_blank">Order on Zomato</a>
+  </header>
 
-<header class="hero">
-  <img src="images/LOGO.png" class="logo" alt="Logo">
-  <h1>Panditan Di Hatti</h1>
-  <p class="tagline" id="tagline">Loading tagline...</p>
-  <div id="openStatus" class="status">Checking status...</div>
-  <a id="zomatoBtn" class="zomato-order" href="#" target="_blank">Order on Zomato</a>
-</header>
+  <section class="about">
+    <h2>About Us</h2>
+    <p id="about-text">Loading...</p>
+    <img id="owner-image" src="images/OWNER.png" alt="Owner Photo">
+  </section>
 
-<section class="about">
-  <h2>About Us</h2>
-  <p id="aboutText">Loading about text...</p>
-  <img id="ownerImg" src="images/OWNER.png" alt="Owner Photo">
-</section>
+  <section class="menu">
+    <h2>Our Specialties</h2>
+    <div id="menu-list">Loading menu...</div>
+  </section>
 
-<section class="menu">
-  <h2>Our Specialties</h2>
-  <div id="menuItems"></div>
-</section>
-
-<section class="modi-promo">
-  <h2>PM Modi Featured Us!</h2>
-  <p>PM Narendra Modi’s fan pages featured our <strong>Besan Barfi</strong> — and the love from India followed! 🇮🇳</p>
-  <iframe id="youtubeVideo" src="" allowfullscreen></iframe>
-</section>
-
-<section class="timings">
-  <h2>🕒 Opening Hours</h2>
-  <ul id="timing-list"></ul>
-</section>
-
-<section class="offers">
-  <h2>🎉 Special Offers</h2>
-  <div id="offersList"></div>
-</section>
-
-<section class="reviews">
-  <h2>⭐ Customer Reviews</h2>
-  <div id="reviewsList"></div>
-  <div class="review-link">
-    <a href="#reviews">✍️ Write a Review</a>
-  </div>
-</section>
-
-<section class="contact">
-  <h2>Visit Us</h2>
-  <p>📍 Near PG Degree College, Anu Market, Hamirpur (Anu), Himachal Pradesh</p>
-  <iframe src="https://www.google.com/maps?q=31.750798576238175,76.51580599973934&z=17&output=embed" allowfullscreen loading="lazy"></iframe>
-</section>
-
-<img src="images/SHOP.avif" alt="Shop Front" class="shop-img">
-
-<footer>
-  <p id="footerText">© 2025 Panditan Di Hatti | Website designed by Harshit | Licensed under MIT</p>
-</footer>
-
-<script>
-  // Open/close logic
-  const now = new Date();
-  const mins = now.getHours()*60 + now.getMinutes();
-  const open = 8*60, close = 20*60+30;
-  const isOpen = mins >= open && mins <= close;
-  document.getElementById('openStatus').textContent = isOpen ? '✅ We’re Open Now' : '❌ We’re Closed Now';
-  document.getElementById('zomatoBtn').classList.add(isOpen ? 'open' : 'closed');
-
-  // Highlight today's timings
-  const day = now.getDay();
-  fetch('settings.yml').then(res => res.text()).then(txt => {
-    const data = jsyaml.load(txt);
-    const list = document.getElementById('timing-list');
-    data.timings.forEach((t, i) => {
-      const li = document.createElement('li');
-      li.innerHTML = `${t.day}: <span>${t.hours}</span>`;
-      if (i === day) li.classList.add('today');
-      list.appendChild(li);
-    });
-    document.getElementById('youtubeVideo').src = data.video;
-    document.getElementById('footerText').textContent = data.footer;
-    document.getElementById('zomatoBtn').href = data.zomato;
-  });
-
-  fetch('about.yml').then(r => r.text()).then(yml => {
-    const about = jsyaml.load(yml);
-    document.getElementById('aboutText').textContent = about.text;
-    document.getElementById('ownerImg').src = about.image;
-  });
-
-  fetch('banner.yml').then(r => r.text()).then(yml => {
-    const banner = jsyaml.load(yml);
-    document.getElementById('tagline').textContent = banner.tagline;
-    document.querySelector("link[rel='icon']").href = banner.logo;
-    document.querySelector('.logo').src = banner.logo;
-  });
-
-  function loadMarkdown(folder, targetId, templateFn) {
-    fetch('content/' + folder)
-      .then(() => {})
-      .catch(() => {});
-    fetch(`https://panditandihatti.netlify.app/content/${folder}/`)
-      .then(() => {})
-      .catch(() => {});
-  }
-
-  async function loadFolder(folder, containerId, template) {
-    const res = await fetch(`https://panditandihatti.netlify.app/content/${folder}/`);
-    const html = await res.text();
-    const links = Array.from(html.matchAll(/href="([^"]+\.md)"/g)).map(m => m[1]);
-    for (const file of links) {
-      const md = await fetch(`content/${folder}/${file}`).then(r => r.text());
-      const { attributes, body } = window.frontMatter(md);
-      document.getElementById(containerId).innerHTML += template(attributes, body);
-    }
-  }
-
-  window.frontMatter = function(md) {
-    const match = /^---\s*([\s\S]+?)---/.exec(md);
-    if (!match) return { body: md, attributes: {} };
-    const yaml = match[1];
-    const body = md.replace(match[0], '').trim();
-    return { body, attributes: jsyaml.load(yaml) };
-  };
-
-  loadFolder('menu', 'menuItems', (a, b) => `
-    <div class="menu-item">
-      <img src="${a.image}" alt="${a.title}">
-      <div><strong>${a.title}:</strong> ${b}</div>
+  <section class="modi-promo">
+    <h2>PM Modi Featured Us!</h2>
+    <p>PM Narendra Modi’s fan pages featured our <strong>Besan Barfi</strong> — and the love from India followed! 🇮🇳</p>
+    <div class="modi-video">
+      <iframe width="100%" height="315" src="https://www.youtube.com/embed/QOZa-VSTyek"
+        title="PM Modi YouTube Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
-  `);
-  loadFolder('offers', 'offersList', (a, b) => `
-    <div class="review"><strong>${a.title}:</strong> ${b}</div>
-  `);
-  loadFolder('reviews', 'reviewsList', (a, b) => `
-    <div class="review"><strong>${a.name}:</strong> "${b}"</div>
-  `);
-</script>
+  </section>
+
+  <section class="timings">
+    <h2>🕒 Opening Hours</h2>
+    <ul id="timing-list">
+      <li>Sunday: <span>08:00 AM – 08:30 PM</span></li>
+      <li>Monday: <span>08:00 AM – 08:30 PM</span></li>
+      <li>Tuesday: <span>08:00 AM – 08:30 PM</span></li>
+      <li>Wednesday: <span>08:00 AM – 08:30 PM</span></li>
+      <li>Thursday: <span>08:00 AM – 08:30 PM</span></li>
+      <li>Friday: <span>08:00 AM – 08:30 PM</span></li>
+      <li>Saturday: <span>08:00 AM – 08:30 PM</span></li>
+    </ul>
+  </section>
+
+  <section class="reviews">
+    <h2>⭐ Customer Reviews</h2>
+    <div id="review-list">Loading reviews...</div>
+    <div class="review-link"><a href="#reviews">✍️ Write a Review</a></div>
+  </section>
+
+  <section class="contact">
+    <h2>Visit Us</h2>
+    <p>📍 Near PG Degree College, Anu Market, Hamirpur (Anu), Himachal Pradesh<br>⭐ Rated 4.5★ (1,250+ reviews)</p>
+    <iframe src="https://www.google.com/maps?q=31.750798576238175,76.51580599973934&z=17&output=embed" allowfullscreen loading="lazy"></iframe>
+  </section>
+
+  <img src="images/SHOP.avif" alt="Shop Front" class="shop-img">
+
+  <footer>
+    <p>© 2025 Panditan Di Hatti | Website designed by Harshit | Licensed under MIT</p>
+  </footer>
+
+  <script>
+    const today = new Date().getDay();
+    document.querySelectorAll('#timing-list li')[today].classList.add('today');
+    const now = new Date();
+    const totalMins = now.getHours()*60 + now.getMinutes();
+    const openMins = 8*60, closeMins = 20*60 + 30;
+    const isOpen = totalMins >= openMins && totalMins <= closeMins;
+    document.getElementById('openStatus').textContent = isOpen ? '✅ We’re Open Now' : '❌ We’re Closed Now';
+    const btn = document.getElementById('zomatoBtn');
+    btn.classList.add(isOpen ? 'open' : 'closed');
+
+    async function fetchYAML(url) {
+      const res = await fetch(url);
+      const text = await res.text();
+      return jsyaml.load(text);
+    }
+
+    async function fetchMarkdownList(path) {
+      const res = await fetch(`https://api.github.com/repos/YOUR_USERNAME/YOUR_REPO/contents/${path}`);
+      const files = await res.json();
+      const all = await Promise.all(
+        files.filter(f => f.name.endsWith('.md')).map(async file => {
+          const mdRes = await fetch(file.download_url);
+          const mdText = await mdRes.text();
+          const content = window.marked.parseFrontMatter(mdText);
+          return content;
+        })
+      );
+      return all;
+    }
+
+    function insertMenuItems(menu) {
+      const container = document.getElementById('menu-list');
+      container.innerHTML = menu.map(item => `
+        <div class="menu-item">
+          <img src="${item.image}" alt="${item.title}">
+          <div><strong>${item.title}:</strong> ${item.description}</div>
+        </div>
+      `).join('');
+    }
+
+    function insertReviews(reviews) {
+      const container = document.getElementById('review-list');
+      container.innerHTML = reviews.map(r => `
+        <div class="review"><strong>${r.name}:</strong> ${r.body}</div>
+      `).join('');
+    }
+
+    async function loadDynamicContent() {
+      const about = await fetchYAML('about.yml');
+      document.getElementById('about-text').textContent = about.description || 'About us text not found.';
+
+      const menu = await fetchMarkdownList('content/menu');
+      insertMenuItems(menu);
+
+      const reviews = await fetchMarkdownList('content/reviews');
+      insertReviews(reviews);
+    }
+
+    window.addEventListener('DOMContentLoaded', loadDynamicContent);
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked-frontmatter@1.0.0/browser.min.js"></script>
 </body>
 </html>
